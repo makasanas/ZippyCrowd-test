@@ -1,1 +1,177 @@
-/* You can add global styles to this file, and also import other style files */
+
+$brand_color: #79c89c;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: top;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+
+.container {
+    max-width: 1100px;
+    width: 100%;
+    padding: 0px 30px;
+    margin: 0px auto;
+    @media screen and (max-width: 767px) {
+        padding:0px 20px;
+    }
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    background: #f8f9ff;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+    &:hover {
+        color: $brand_color;
+    }
+}
+
+.btn {
+    color: #fff;
+    background:  $brand_color;
+    padding: 20px 20px;
+    border: 1px solid $brand_color;
+    letter-spacing: 1px;
+    transition: all 300ms linear;
+    font-size: 16px;
+    line-height: 1;
+    box-shadow: 0px 3px 1px #ddd, 0 3px 20px #ccc;
+    text-align: center;
+    border-radius: 25px;
+    &:hover {
+        background: $brand_color;
+        color: white;
+        cursor: pointer;
+    }
+    @media screen and (max-width:767px) {
+        font-size: 12px;
+        padding: 8px 13px;
+    }
+}
+.custom-errors{
+    font-size: 13px;
+    color: red;
+    margin-top: 5px;
+}

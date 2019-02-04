@@ -1,20 +1,32 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="homePage">
+  <div class="container">
+      <form [formGroup]="getRecommendations" class="form">
+          <h2>What are you looking for?</h2>
+          <div class="input">
+            <input placeholder="eg. hairdresser" formControlName="skill" (input)="isSkillChange = false; isSkillSelected = false" (focusout)="isSkillChange = true"/>
+            <ul [ngClass]="{'active':  getRecommendations.get('skill').value.length > 0 && !isSkillChange}">
+              <li *ngFor="let skill of initialSkills | filter : getRecommendations.get('skill').value" (click)="selectSkill(skill)">{{skill}}</li>
+            </ul>
+            <div *ngIf="(getRecommendations.get('skill').dirty || getRecommendations.get('skill').touched)"
+              class="custom-errors">
+                <div *ngIf="!isSkillSelected">
+                  Skill is required
+                </div>
+              </div>
+          </div>
+          <div class="input location">
+              <input placeholder="Where?" type="text" formControlName="location" [attr.disabled]="getRecommendations.get('isLocation').value ? '' : null"/>
+              <div class="isLocation">
+                  <p>Any Location</p>
+                  <label class="switch">
+                      <input type="checkbox" (change)="locationOnChange()" formControlName="isLocation"  >
+                      <span class="slider round"></span>
+                    </label>
+              </div>
+          </div>
+          <div class="submit" >
+            <div class="btn" (click)="getRecommendation()" >Get Recommendations</div>
+          </div>
+        </form>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
